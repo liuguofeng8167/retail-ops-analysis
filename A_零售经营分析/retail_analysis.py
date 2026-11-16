@@ -1,14 +1,3 @@
-"""
-A 项目｜零售经营分析（UCI Online Retail II）
-================================================
-作用：把交易明细清洗成经营口径，输出月度/国家/RFM/留存四张结果表 + 一个带图的 Excel。
-
-用法：
-    python retail_analysis.py --input data/online_retail_II.csv --out outputs
-    python retail_analysis.py --demo          # 没下载数据时，用合成数据先跑通流程
-
-依赖：pandas、numpy、xlsxwriter（都是常用的，缺了就 pip install）
-"""
 import argparse
 import json
 import os
