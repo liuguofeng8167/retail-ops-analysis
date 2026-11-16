@@ -30,7 +30,6 @@ REQUIRED = ["invoice", "qty", "date", "price"]
 
 
 def find_columns(df):
-    """按候选名找列，找不到就报错并列出当前列名，方便改。"""
     mapping = {}
     lower = {str(c).strip().lower(): c for c in df.columns}
     for key, names in CANDIDATES.items():
@@ -169,7 +168,6 @@ def rfm(df):
 
 
 def retention(df, months=6):
-    """首购月为 cohort，之后每月是否再购买。"""
     sales = df[df["is_return"] == False]
     sales = sales[sales["customer_id"].notna()]
     if sales.empty:
@@ -189,7 +187,6 @@ def retention(df, months=6):
 
 
 def anomalies(m):
-    """找“GMV 在涨、但退货率同时在涨”的月份——这是经营分析最该指出的信号。"""
     out = []
     for i in range(1, len(m)):
         cur, prev = m.iloc[i], m.iloc[i - 1]
@@ -203,7 +200,6 @@ def anomalies(m):
 
 
 def write_excel(path, tables, charts=None):
-    """输出一个可直接给业务看的 Excel，图用 xlsxwriter 原生图表。"""
     with pd.ExcelWriter(path, engine="xlsxwriter") as writer:
         book = writer.book
         for name, df in tables.items():
@@ -342,8 +338,7 @@ def main():
 
     print(json.dumps(kpi, ensure_ascii=False, indent=2))
     print(f"\n结果已写入 {os.path.abspath(args.out)}")
-    if args.demo:
-        print("提示：以上数字来自合成数据，换成真实数据重跑后再用。")
+    
 
 
 if __name__ == "__main__":
