@@ -1,16 +1,3 @@
-"""
-B 项目｜用户行为漏斗与留存（阿里天池 UserBehavior 格式）
-=========================================================
-作用：把行为日志做成 漏斗 / 留存矩阵 / 用户分层 / 品类转化 四张表 + 带图 Excel。
-
-用法：
-    python funnel_analysis.py --input data/UserBehavior.csv --out outputs
-    python funnel_analysis.py --input data/UserBehavior.csv --out outputs --sample 2000000
-    python funnel_analysis.py --demo                 # 合成数据跑通流程
-
-数据说明：天池 UserBehavior 无表头，列顺序为
-    user_id, item_id, category_id, behavior_type(pv/cart/fav/buy), timestamp(秒)
-"""
 import argparse
 import json
 import os
