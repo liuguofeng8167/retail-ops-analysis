@@ -1,0 +1,31 @@
+# 数据文件不入库
+data/*
+!data/README.md
+
+# 数据集和工作簿：体积大，一律不入库
+# 如果以后确实要提交一个小的结果 xlsx，用 git add -f 强制添加
+*.xlsx
+UserBehavior*.csv
+*.zip
+
+# 运行产生的输出（可随时重跑，不必占用仓库体积）
+outputs/
+outputs_demo/
+demo_write/
+
+# 学习示例，不随项目发布
+示例_写入文件.py
+
+# 个人求职材料，不随项目发布
+00_执行手册.docx
+
+# Python 缓存
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# 系统/编辑器杂项
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
